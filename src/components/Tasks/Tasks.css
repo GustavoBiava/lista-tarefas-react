@@ -1,0 +1,34 @@
+.tasks {
+  margin-top: 30px;
+}
+
+.tasks li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  transition: all 300ms;
+  cursor: default;
+}
+
+.tasks li spam{
+  display: flex;
+  align-items: center;
+}
+
+.tasks li:hover {
+  background-color: #bc046c;
+  color: black;
+}
+
+.tasks li .edit,
+.tasks li .delete {
+  margin-right: 15px;
+  background-color: #bc046c;
+  padding: 2px;
+}
+
+.tasks li:hover .edit,
+.tasks li:hover .delete {
+  cursor: pointer;
+}
