@@ -8,7 +8,7 @@ import './Main.css';
 class Main extends Component {
   state = {
     newTask: '',
-    tasks: ['Fazer café', 'Beber água', 'Estudar React'],
+    tasks: [],
   };
 
   handleInputChange = (event) => {
@@ -17,13 +17,27 @@ class Main extends Component {
     });
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { tasks } = this.state;
+    let { newTask } = this.state;
+    newTask = newTask.trim();
+
+    if (tasks.indexOf(newTask) !== -1) return;
+
+    const newTasks = [...tasks, newTask];
+    this.setState({
+      tasks: [...newTasks],
+    });
+  };
+
   render() {
-    const { newTask, tasks} = this.state;
+    const { newTask, tasks } = this.state;
 
     return (
       <div className="main">
         <h1>Lista de Tarefas</h1>
-        <form action="" className='form'>
+        <form action="" className="form" onSubmit={this.handleSubmit}>
           <input onChange={this.handleInputChange}
           type="text"
           value={newTask}
@@ -37,10 +51,10 @@ class Main extends Component {
           {tasks.map((task) => (
             <li key={task}>
               {task}
-              <div>
+              <spam>
                 <FaEdit className="edit" />
                 <FaWindowClose className="delete" />
-              </div>
+              </spam>
             </li>
           ))}
         </ul>

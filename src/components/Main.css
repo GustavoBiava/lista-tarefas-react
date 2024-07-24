@@ -63,6 +63,11 @@
   cursor: default;
 }
 
+.tasks li spam{
+  display: flex;
+  align-items: center;
+}
+
 .tasks li:hover {
   background-color: #bc046c;
   color: black;
